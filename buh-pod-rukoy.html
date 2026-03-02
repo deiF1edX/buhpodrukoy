@@ -5,29 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Бух Под Рукой | Бухгалтерия</title>
 
-    <!-- ─── Подключение Tailwind CSS через CDN ─── -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- ─── Шрифты Google Fonts ─── -->
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
-    <!-- ─── Настройка фирменных цветов Tailwind ─── -->
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              // Жёлтый — главный фирменный цвет (из логотипа)
               primary: "#F5C800",
               "primary-dark": "#D4A900",
-              // Тёмно-бирюзовый — второй фирменный цвет (из логотипа)
               teal: "#0E5E6F",
               "teal-dark": "#0A4452",
               "teal-light": "#1A8FA8",
-              // Тёмный фон для шапки и подвала
               dark: "#0C3D47",
             },
             fontFamily: {
@@ -40,12 +34,9 @@
     </script>
 
     <style>
-      /* Базовый шрифт для всего сайта */
       body {
         font-family: "Inter", sans-serif;
       }
-
-      /* Декоративные круги на фоне Hero-секции */
       #bann::before {
         content: "";
         position: absolute;
@@ -66,8 +57,6 @@
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.04);
       }
-
-      /* Анимация появления элементов при скролле */
       .fade-up {
         opacity: 0;
         transform: translateY(30px);
@@ -79,8 +68,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-
-      /* Убираем стандартный outline у полей ввода */
       input:focus {
         outline: none;
         border-color: #0e5e6f !important;
@@ -88,10 +75,6 @@
     </style>
   </head>
   <body class="text-[#0C3D47] bg-white overflow-x-hidden">
-    <!-- ════════════════════════════════════════
-     ВЕРХНЯЯ ИНФОРМАЦИОННАЯ ПОЛОСКА
-     Адрес и телефон над шапкой
-═════════════════════════════════════════ -->
     <div class="bg-teal text-white/80 text-xs py-2">
       <div
         class="max-w-[1160px] mx-auto px-5 flex justify-between items-center"
@@ -100,24 +83,17 @@
         <a
           href="tel:+77018008223"
           class="text-white/80 hover:text-white transition-colors no-underline font-medium"
+          >+7 701 800 8223</a
         >
-          +7 701 800 8223
-        </a>
       </div>
     </div>
 
-    <!-- ════════════════════════════════════════
-     ШАПКА САЙТА (липкая при скролле)
-     Логотип + навигация + телефон
-═════════════════════════════════════════ -->
     <header
       class="sticky top-0 z-50 bg-white shadow-[0_2px_20px_rgba(14,94,111,0.12)]"
     >
       <div class="max-w-[1160px] mx-auto px-5">
         <div class="flex items-center justify-between py-4">
-          <!-- Логотип: документ + название бренда -->
           <a href="#bann" class="flex items-center gap-3 no-underline group">
-            <!-- Иконка документа (SVG, повторяет форму из логотипа) -->
             <div
               class="w-10 h-12 bg-teal rounded-lg flex flex-col items-center justify-center gap-1 group-hover:bg-teal-dark transition-colors flex-shrink-0"
             >
@@ -148,7 +124,6 @@
                 />
               </svg>
             </div>
-            <!-- Текст логотипа -->
             <div class="font-montserrat font-extrabold leading-tight">
               <span class="text-teal text-lg">BUH</span><br />
               <span class="text-primary text-[11px] tracking-widest font-bold"
@@ -157,7 +132,6 @@
             </div>
           </a>
 
-          <!-- Навигационное меню (скрыто на мобильных) -->
           <nav class="hidden md:flex">
             <a
               href="#bann"
@@ -191,7 +165,6 @@
             >
           </nav>
 
-          <!-- Телефон и кнопка обратного звонка -->
           <div class="flex flex-col items-end gap-1">
             <a
               href="tel:+77018008223"
@@ -202,18 +175,13 @@
             <a
               href="#"
               class="open-popup mt-1 bg-primary text-teal text-xs font-bold px-5 py-2 rounded-md hover:bg-primary-dark transition-colors no-underline inline-block"
+              >Обратный звонок</a
             >
-              Обратный звонок
-            </a>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- ════════════════════════════════════════
-     HERO-СЕКЦИЯ (главный экран)
-     Заголовок + преимущества + форма заявки
-═════════════════════════════════════════ -->
     <section
       id="bann"
       class="relative overflow-hidden py-20 text-white"
@@ -230,22 +198,18 @@
         <div
           class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-16 items-center"
         >
-          <!-- Левая часть: заголовок и карточки преимуществ -->
           <div>
-            <!-- Главный заголовок -->
             <h1
               class="font-montserrat text-4xl lg:text-[44px] font-black leading-tight mb-6"
             >
-              Бухгалтерия под рукой —<br />
-              <span class="text-primary">всегда и везде</span>
+              Бухгалтерия под рукой —<br /><span class="text-primary"
+                >всегда и везде</span
+              >
             </h1>
-            <!-- Подзаголовок с ценой -->
             <p class="text-lg opacity-85 mb-10">
               Ведение бухгалтерского учёта для вашего бизнеса в Казахстане.<br />
               Полный цикл от <strong class="text-primary">15 000₸/месяц</strong>
             </p>
-
-            <!-- Три карточки с ключевыми преимуществами -->
             <div class="flex flex-col gap-4">
               <div
                 class="flex items-start gap-3.5 bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3.5 border border-white/10"
@@ -274,7 +238,6 @@
             </div>
           </div>
 
-          <!-- Правая часть: форма для получения консультации -->
           <div
             class="bg-white rounded-2xl px-7 py-8 text-[#0C3D47] shadow-[0_24px_60px_rgba(0,0,0,0.3)]"
           >
@@ -285,11 +248,11 @@
               Подробно обсудив задачи, мы сформулируем индивидуальные решения
             </p>
 
-            <!-- Форма заявки на Hero-секции -->
             <form id="heroForm">
               <div class="mb-3.5">
                 <input
                   type="text"
+                  name="name"
                   placeholder="Ваше имя"
                   required
                   class="w-full px-3.5 py-3 border border-gray-200 rounded-lg text-sm transition-colors"
@@ -298,12 +261,12 @@
               <div class="mb-3.5">
                 <input
                   type="tel"
+                  name="phone"
                   placeholder="+7 ___ ___ __ __"
                   required
                   class="w-full px-3.5 py-3 border border-gray-200 rounded-lg text-sm transition-colors"
                 />
               </div>
-              <!-- Чекбокс согласия с политикой -->
               <div class="flex gap-2 items-start text-xs text-gray-500 mb-4">
                 <input
                   type="checkbox"
@@ -318,7 +281,6 @@
                   ></label
                 >
               </div>
-              <!-- Кнопка отправки формы -->
               <button
                 type="submit"
                 class="w-full bg-primary text-teal font-montserrat font-black text-[15px] py-3.5 rounded-lg hover:bg-primary-dark hover:-translate-y-px transition-all cursor-pointer border-0 shadow-[0_4px_14px_rgba(245,200,0,0.4)]"
@@ -327,7 +289,6 @@
               </button>
             </form>
 
-            <!-- Альтернативные способы связи через мессенджеры -->
             <div class="mt-4 text-center text-xs text-gray-500">
               <p>Или напишите в мессенджере:</p>
               <div class="flex justify-center gap-2.5 mt-2">
@@ -350,10 +311,6 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-     СЕКЦИЯ "О НАС" — СТАТИСТИКА КОМПАНИИ
-     4 карточки с ключевыми цифрами
-═════════════════════════════════════════ -->
     <section id="advants" class="py-20 bg-white">
       <div class="max-w-[1160px] mx-auto px-5">
         <h2
@@ -364,10 +321,7 @@
         <p class="text-center text-gray-500 text-base mb-12 fade-up">
           Надёжный партнёр для бизнеса в Астане с 2018 года
         </p>
-
-        <!-- Сетка из 4 статистических карточек -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Карточка 1: Опыт работы -->
           <div
             class="fade-up bg-[#F0F9FB] rounded-2xl overflow-hidden grid grid-cols-2 hover:-translate-y-1 hover:shadow-xl transition-all duration-200"
           >
@@ -378,14 +332,11 @@
                 5+
               </div>
               <p class="text-sm text-gray-500 mt-2 leading-relaxed">
-                Лет представляем интересы компаний в налоговых органах и
-                отстаиваем их интересы
+                Лет представляем интересы компаний
               </p>
             </div>
             <div class="h-40 bg-gradient-to-br from-teal/20 to-teal/50"></div>
           </div>
-
-          <!-- Карточка 2: Количество клиентов -->
           <div
             class="fade-up bg-[#FFFBEA] rounded-2xl overflow-hidden grid grid-cols-2 hover:-translate-y-1 hover:shadow-xl transition-all duration-200"
           >
@@ -397,16 +348,13 @@
                 50+
               </div>
               <p class="text-sm text-gray-500 mt-2 leading-relaxed">
-                Постоянных клиентов доверили нам полное бухгалтерское
-                сопровождение
+                Постоянных клиентов доверили нам учёт
               </p>
             </div>
             <div
               class="h-40 bg-gradient-to-br from-primary/20 to-primary/50"
             ></div>
           </div>
-
-          <!-- Карточка 3: Команда специалистов -->
           <div
             class="fade-up bg-[#F0F9FB] rounded-2xl overflow-hidden grid grid-cols-2 hover:-translate-y-1 hover:shadow-xl transition-all duration-200"
           >
@@ -417,16 +365,13 @@
                 6
               </div>
               <p class="text-sm text-gray-500 mt-2 leading-relaxed">
-                Квалифицированных сотрудников готовы к финансовому и правовому
-                анализу
+                Квалифицированных сотрудников
               </p>
             </div>
             <div
               class="h-40 bg-gradient-to-br from-teal-light/20 to-teal-light/50"
             ></div>
           </div>
-
-          <!-- Карточка 4: Экономия клиентов -->
           <div
             class="fade-up bg-[#FFFBEA] rounded-2xl overflow-hidden grid grid-cols-2 hover:-translate-y-1 hover:shadow-xl transition-all duration-200"
           >
@@ -438,8 +383,7 @@
                 50%
               </div>
               <p class="text-sm text-gray-500 mt-2 leading-relaxed">
-                Средняя экономия административных расходов при передаче
-                бухгалтерии нам
+                Экономия административных расходов
               </p>
             </div>
             <div
@@ -450,10 +394,6 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-     СЕКЦИЯ УСЛУГ
-     4 карточки с основными услугами компании
-═════════════════════════════════════════ -->
     <section id="services" class="py-20 bg-[#F0F9FB]">
       <div class="max-w-[1160px] mx-auto px-5">
         <h2
@@ -464,17 +404,13 @@
         <p class="text-center text-gray-500 text-base mb-12 fade-up">
           Индивидуальный расчёт стоимости — в течение 15 минут
         </p>
-
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Услуга 1: Комплексное бухобслуживание -->
           <div
             class="fade-up bg-white rounded-2xl p-8 border-2 border-transparent hover:border-teal hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(14,94,111,0.15)] transition-all duration-200"
           >
             <div class="text-4xl mb-4">📊</div>
             <h3 class="font-montserrat text-lg font-bold mb-3 leading-snug">
-              <strong class="text-teal"
-                >Комплексное (или частичное) бухгалтерское обслуживание</strong
-              >
+              <strong class="text-teal">Комплексное обслуживание</strong>
               юридических лиц и ИП
             </h3>
             <p class="text-sm text-gray-500 mb-2 leading-relaxed">
@@ -488,19 +424,15 @@
               Получить консультацию
             </button>
           </div>
-
-          <!-- Услуга 2: Налоговые консультации -->
           <div
             class="fade-up bg-white rounded-2xl p-8 border-2 border-transparent hover:border-teal hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(14,94,111,0.15)] transition-all duration-200"
           >
             <div class="text-4xl mb-4">🏦</div>
             <h3 class="font-montserrat text-lg font-bold mb-3 leading-snug">
-              <strong class="text-teal">Налоговый учёт,</strong> планирование и
-              оптимизация налогов
+              <strong class="text-teal">Налоговый учёт</strong> и оптимизация
             </h3>
             <p class="text-sm text-gray-500 mb-5 leading-relaxed">
-              Законно снижаем налоговую нагрузку, помогаем избежать штрафов и
-              правильно планировать обязательства.
+              Законно снижаем налоговую нагрузку, помогаем избежать штрафов.
             </p>
             <button
               class="open-popup border-2 border-teal text-teal px-5 py-2 rounded-lg text-sm font-semibold hover:bg-teal hover:text-white transition-colors cursor-pointer bg-transparent"
@@ -508,19 +440,15 @@
               Получить консультацию
             </button>
           </div>
-
-          <!-- Услуга 3: Сдача отчётности -->
           <div
             class="fade-up bg-white rounded-2xl p-8 border-2 border-transparent hover:border-teal hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(14,94,111,0.15)] transition-all duration-200"
           >
             <div class="text-4xl mb-4">📋</div>
             <h3 class="font-montserrat text-lg font-bold mb-3 leading-snug">
-              <strong class="text-teal">Своевременная сдача отчётов</strong>
-              (декларации и статистические формы)
+              <strong class="text-teal">Сдача отчётности</strong> (декларации)
             </h3>
             <p class="text-sm text-gray-500 mb-5 leading-relaxed">
-              Подготавливаем и сдаём все виды налоговых деклараций в
-              установленные сроки.
+              Подготавливаем и сдаём все виды налоговых деклараций в сроки.
             </p>
             <button
               class="open-popup border-2 border-teal text-teal px-5 py-2 rounded-lg text-sm font-semibold hover:bg-teal hover:text-white transition-colors cursor-pointer bg-transparent"
@@ -528,19 +456,16 @@
               Получить консультацию
             </button>
           </div>
-
-          <!-- Услуга 4: Восстановление учёта -->
           <div
             class="fade-up bg-white rounded-2xl p-8 border-2 border-transparent hover:border-teal hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(14,94,111,0.15)] transition-all duration-200"
           >
             <div class="text-4xl mb-4">🔍</div>
             <h3 class="font-montserrat text-lg font-bold mb-3 leading-snug">
-              <strong class="text-teal">Диагностика и восстановление</strong>
-              бухгалтерского и налогового учёта
+              <strong class="text-teal">Восстановление учёта</strong> и аудит
             </h3>
             <p class="text-sm text-gray-500 mb-5 leading-relaxed">
               Аудит текущего состояния, выявление ошибок и восстановление
-              документации за любой период.
+              документации.
             </p>
             <button
               class="open-popup border-2 border-teal text-teal px-5 py-2 rounded-lg text-sm font-semibold hover:bg-teal hover:text-white transition-colors cursor-pointer bg-transparent"
@@ -552,14 +477,9 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-     СЕКЦИЯ "О КОМПАНИИ" — ТЕКСТОВЫЙ БЛОК
-     Описание компании + фото директора
-═════════════════════════════════════════ -->
     <section id="about" class="py-20 bg-white">
       <div class="max-w-[1160px] mx-auto px-5">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <!-- Текст о компании -->
           <div class="fade-up">
             <h2
               class="font-montserrat text-[34px] font-extrabold mb-5 text-teal"
@@ -568,31 +488,18 @@
             </h2>
             <p class="text-[15px] text-gray-500 leading-loose mb-4">
               <strong class="text-[#0C3D47]">«Бух Под Рукой»</strong> — надёжный
-              партнёр в ведении бухгалтерских дел для организаций Астаны и всего
-              Казахстана.
+              партнёр в ведении бухгалтерских дел.
             </p>
             <p class="text-[15px] text-gray-500 leading-loose mb-4">
               Мы не уходим в отпуск, не увольняемся, никогда не болеем, в
-              отличие от штатного бухгалтера —
-              <strong class="text-[#0C3D47]">мы всегда рядом.</strong>
+              отличие от штатного бухгалтера.
             </p>
-            <p class="text-[15px] text-gray-500 leading-loose mb-4">
-              Наши специалисты регулярно проходят обучение и повышают
-              квалификацию — об этом свидетельствуют их сертификаты.
-            </p>
-            <p class="text-[15px] text-gray-500 leading-loose">
-              WhatsApp, Telegram, email, телефон — ставьте задачи любым удобным
-              способом и получайте оперативную обратную связь.
-            </p>
-            <!-- Подпись директора -->
             <div
               class="mt-6 text-base font-semibold text-[#0C3D47] border-l-4 border-primary pl-4"
             >
               — Генеральный директор, Гульжан
             </div>
           </div>
-
-          <!-- Иллюстрация / фото -->
           <div
             class="fade-up bg-gradient-to-br from-teal/10 to-teal/25 rounded-2xl h-80 flex items-center justify-center text-7xl border border-teal/20"
           >
@@ -602,10 +509,6 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-     СЕКЦИЯ ГАРАНТИЙ / ДОКУМЕНТОВ
-     Тёмный блок с сертификатами и CTA
-═════════════════════════════════════════ -->
     <section id="docs" class="py-20 bg-teal text-white">
       <div class="max-w-[1160px] mx-auto px-5">
         <h2
@@ -616,45 +519,27 @@
         <p class="text-center text-white/60 text-base mb-12 fade-up">
           Высокой квалификации специалистов «Бух Под Рукой»
         </p>
-
         <div class="text-center">
-          <!-- Иконки сертификатов -->
           <div class="flex justify-center gap-5 flex-wrap mb-10 fade-up">
             <div
               class="bg-white/10 border border-white/20 rounded-xl px-7 py-5 text-center min-w-[160px] hover:bg-white/20 transition-colors"
             >
               <div class="text-4xl mb-2.5">🏆</div>
-              <p class="text-xs opacity-75 leading-snug">
-                Сертификат налогового консультанта
-              </p>
+              <p class="text-xs opacity-75">Сертификат консультанта</p>
             </div>
             <div
               class="bg-white/10 border border-white/20 rounded-xl px-7 py-5 text-center min-w-[160px] hover:bg-white/20 transition-colors"
             >
               <div class="text-4xl mb-2.5">📜</div>
-              <p class="text-xs opacity-75 leading-snug">
-                Лицензия на бухгалтерское обслуживание
-              </p>
+              <p class="text-xs opacity-75">Лицензия</p>
             </div>
             <div
               class="bg-white/10 border border-white/20 rounded-xl px-7 py-5 text-center min-w-[160px] hover:bg-white/20 transition-colors"
             >
               <div class="text-4xl mb-2.5">✅</div>
-              <p class="text-xs opacity-75 leading-snug">
-                Свидетельство об аккредитации
-              </p>
-            </div>
-            <div
-              class="bg-white/10 border border-white/20 rounded-xl px-7 py-5 text-center min-w-[160px] hover:bg-white/20 transition-colors"
-            >
-              <div class="text-4xl mb-2.5">🎓</div>
-              <p class="text-xs opacity-75 leading-snug">
-                Дипломы и сертификаты специалистов
-              </p>
+              <p class="text-xs opacity-75">Аккредитация</p>
             </div>
           </div>
-
-          <!-- Главная кнопка призыва к действию -->
           <button
             class="open-popup bg-primary text-teal font-montserrat font-black text-[15px] px-10 py-3.5 rounded-xl hover:bg-primary-dark hover:-translate-y-0.5 transition-all cursor-pointer border-0 shadow-[0_4px_20px_rgba(245,200,0,0.35)]"
           >
@@ -664,10 +549,6 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-     СЕКЦИЯ ОТЗЫВОВ КЛИЕНТОВ
-     3 карточки с реальными отзывами
-═════════════════════════════════════════ -->
     <section id="reviews" class="py-20 bg-[#F0F9FB]">
       <div class="max-w-[1160px] mx-auto px-5">
         <h2
@@ -675,27 +556,18 @@
         >
           Наши клиенты довольны
         </h2>
-        <p class="text-center text-gray-500 text-base mb-12 fade-up">
-          Разумные цены, индивидуальный подход и гибкие системы оплаты
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Отзыв 1 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
           <div
-            class="fade-up bg-white rounded-2xl p-7 shadow-[0_4px_16px_rgba(14,94,111,0.08)] hover:-translate-y-1 transition-transform duration-200"
+            class="fade-up bg-white rounded-2xl p-7 shadow-[0_4px_16px_rgba(14,94,111,0.08)] hover:-translate-y-1"
           >
-            <!-- Звёзды рейтинга (жёлтые — фирменный цвет) -->
-            <div class="text-primary text-lg mb-3" style="color: #d4a900">
-              ★★★★★
-            </div>
-            <p class="text-sm text-gray-500 leading-relaxed mb-5">
+            <div class="text-primary text-lg mb-3">★★★★★</div>
+            <p class="text-sm text-gray-500 mb-5">
               Работаем с командой «Бух Под Рукой» уже 3 года. Всегда сдают
-              отчёты вовремя, доступны в любое время. Рекомендую всем!
+              отчёты вовремя.
             </p>
-            <!-- Аватар и имя автора -->
             <div class="flex items-center gap-3">
               <div
-                class="w-10 h-10 rounded-full bg-gradient-to-br from-teal to-teal-light flex items-center justify-center text-white font-bold text-base flex-shrink-0"
+                class="w-10 h-10 rounded-full bg-teal text-white flex items-center justify-center font-bold"
               >
                 А
               </div>
@@ -707,21 +579,17 @@
               </div>
             </div>
           </div>
-
-          <!-- Отзыв 2 -->
           <div
-            class="fade-up bg-white rounded-2xl p-7 shadow-[0_4px_16px_rgba(14,94,111,0.08)] hover:-translate-y-1 transition-transform duration-200"
+            class="fade-up bg-white rounded-2xl p-7 shadow-[0_4px_16px_rgba(14,94,111,0.08)] hover:-translate-y-1"
           >
-            <div class="text-primary text-lg mb-3" style="color: #d4a900">
-              ★★★★★
-            </div>
-            <p class="text-sm text-gray-500 leading-relaxed mb-5">
-              Помогли разобраться с налоговыми задолженностями прошлых лет и
-              наладить правильный учёт. Очень профессиональная команда!
+            <div class="text-primary text-lg mb-3">★★★★★</div>
+            <p class="text-sm text-gray-500 mb-5">
+              Помогли разобраться с налоговыми задолженностями прошлых лет.
+              Профессионалы!
             </p>
             <div class="flex items-center gap-3">
               <div
-                class="w-10 h-10 rounded-full bg-gradient-to-br from-teal to-teal-light flex items-center justify-center text-white font-bold text-base flex-shrink-0"
+                class="w-10 h-10 rounded-full bg-teal text-white flex items-center justify-center font-bold"
               >
                 Д
               </div>
@@ -733,21 +601,17 @@
               </div>
             </div>
           </div>
-
-          <!-- Отзыв 3 -->
           <div
-            class="fade-up bg-white rounded-2xl p-7 shadow-[0_4px_16px_rgba(14,94,111,0.08)] hover:-translate-y-1 transition-transform duration-200"
+            class="fade-up bg-white rounded-2xl p-7 shadow-[0_4px_16px_rgba(14,94,111,0.08)] hover:-translate-y-1"
           >
-            <div class="text-primary text-lg mb-3" style="color: #d4a900">
-              ★★★★★
-            </div>
-            <p class="text-sm text-gray-500 leading-relaxed mb-5">
-              Передали бухгалтерию год назад. Экономия на зарплате штатного
-              бухгалтера существенная, а качество работы на высоте!
+            <div class="text-primary text-lg mb-3">★★★★★</div>
+            <p class="text-sm text-gray-500 mb-5">
+              Экономия на зарплате штатного бухгалтера существенная, а качество
+              работы на высоте!
             </p>
             <div class="flex items-center gap-3">
               <div
-                class="w-10 h-10 rounded-full bg-gradient-to-br from-teal to-teal-light flex items-center justify-center text-white font-bold text-base flex-shrink-0"
+                class="w-10 h-10 rounded-full bg-teal text-white flex items-center justify-center font-bold"
               >
                 М
               </div>
@@ -763,21 +627,15 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-     CTA-ПОЛОСА (призыв к действию)
-     Жёлтый фон — максимально заметный блок
-═════════════════════════════════════════ -->
     <section class="py-16 bg-primary text-teal text-center">
       <div class="max-w-[1160px] mx-auto px-5">
         <h2 class="font-montserrat text-[34px] font-black mb-4 fade-up">
           Проведём бесплатный анализ вашей бухгалтерии
         </h2>
         <p class="text-base opacity-80 mb-9 max-w-xl mx-auto fade-up">
-          Покажем плюсы и минусы текущего состояния учёта — сэкономим ваши
-          время, энергию и деньги!
+          Сэкономим ваши время, энергию и деньги!
         </p>
         <div class="fade-up">
-          <!-- Кнопка на жёлтом фоне — тёмная (инверсия) -->
           <button
             class="open-popup bg-teal text-white font-montserrat font-bold text-[15px] px-10 py-3.5 rounded-xl hover:bg-teal-dark transition-colors cursor-pointer border-0 shadow-[0_4px_20px_rgba(14,94,111,0.4)]"
           >
@@ -787,22 +645,15 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-     СЕКЦИЯ КОНТАКТОВ
-     Адрес, телефон, мессенджеры + карта
-═════════════════════════════════════════ -->
     <section id="contacts" class="py-20 bg-white">
       <div class="max-w-[1160px] mx-auto px-5">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-          <!-- Контактная информация -->
           <div class="fade-up">
             <h2
               class="font-montserrat text-[32px] font-extrabold mb-6 text-teal"
             >
               Посетите наш офис
             </h2>
-
-            <!-- Адрес -->
             <div class="flex gap-4 mb-5 items-start">
               <div
                 class="w-11 h-11 rounded-xl bg-[#F0F9FB] flex items-center justify-center text-xl flex-shrink-0 border border-teal/10"
@@ -812,12 +663,9 @@
               <div>
                 <strong class="block text-[15px] mb-0.5 text-[#0C3D47]"
                   >Адрес</strong
-                >
-                <span class="text-sm text-gray-500">г. Астана</span>
+                ><span class="text-sm text-gray-500">г. Астана</span>
               </div>
             </div>
-
-            <!-- Телефон -->
             <div class="flex gap-4 mb-5 items-start">
               <div
                 class="w-11 h-11 rounded-xl bg-[#F0F9FB] flex items-center justify-center text-xl flex-shrink-0 border border-teal/10"
@@ -827,16 +675,13 @@
               <div>
                 <strong class="block text-[15px] mb-0.5 text-[#0C3D47]"
                   >Телефон</strong
-                >
-                <a
+                ><a
                   href="tel:+77018008223"
                   class="text-sm text-gray-500 hover:text-teal no-underline transition-colors"
                   >+7 701 800 8223</a
                 >
               </div>
             </div>
-
-            <!-- Email -->
             <div class="flex gap-4 mb-5 items-start">
               <div
                 class="w-11 h-11 rounded-xl bg-[#F0F9FB] flex items-center justify-center text-xl flex-shrink-0 border border-teal/10"
@@ -846,74 +691,27 @@
               <div>
                 <strong class="block text-[15px] mb-0.5 text-[#0C3D47]"
                   >Email</strong
-                >
-                <a
+                ><a
                   href="mailto:info@buhpodrukoy.kz"
                   class="text-sm text-gray-500 hover:text-teal no-underline transition-colors"
                   >info@buhpodrukoy.kz</a
                 >
               </div>
             </div>
-
-            <!-- Режим работы -->
-            <div class="flex gap-4 mb-5 items-start">
-              <div
-                class="w-11 h-11 rounded-xl bg-[#F0F9FB] flex items-center justify-center text-xl flex-shrink-0 border border-teal/10"
-              >
-                🕐
-              </div>
-              <div>
-                <strong class="block text-[15px] mb-0.5 text-[#0C3D47]"
-                  >График работы</strong
-                >
-                <span class="text-sm text-gray-500"
-                  >Пн–Пт: 09:00 – 18:00 | Сб–Вс: выходные</span
-                >
-              </div>
-            </div>
-
-            <!-- Кнопки мессенджеров -->
-            <div class="flex gap-3 mt-7 flex-wrap">
-              <a
-                href="mailto:info@buhpodrukoy.kz"
-                class="flex items-center gap-1.5 px-4 py-2.5 bg-[#F0F9FB] rounded-xl text-sm font-medium text-[#0C3D47] hover:bg-teal hover:text-white transition-colors no-underline border border-teal/10"
-                >📧 Email</a
-              >
-              <a
-                href="https://t.me/buhpodrukoy"
-                target="_blank"
-                class="flex items-center gap-1.5 px-4 py-2.5 bg-[#F0F9FB] rounded-xl text-sm font-medium text-[#0C3D47] hover:bg-teal hover:text-white transition-colors no-underline border border-teal/10"
-                >✈️ Telegram</a
-              >
-              <a
-                href="https://wa.me/77018008223"
-                target="_blank"
-                class="flex items-center gap-1.5 px-4 py-2.5 bg-[#F0F9FB] rounded-xl text-sm font-medium text-[#0C3D47] hover:bg-teal hover:text-white transition-colors no-underline border border-teal/10"
-                >💬 WhatsApp</a
-              >
-            </div>
           </div>
-
-          <!-- Заглушка карты (можно заменить на iframe Google Maps) -->
           <div
             class="fade-up bg-gradient-to-br from-teal/10 to-teal/25 rounded-2xl h-[360px] flex flex-col items-center justify-center gap-3 text-5xl text-teal border border-teal/20"
           >
             🗺️
             <p class="text-sm text-gray-500 font-medium">г. Астана</p>
-            <p class="text-xs text-gray-400">Нажмите, чтобы открыть на карте</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-     ПОДВАЛ САЙТА (Footer)
-     Логотип + навигация + контакты + копирайт
-═════════════════════════════════════════ -->
     <footer class="bg-teal text-white/70 pt-12 pb-8">
       <div class="max-w-[1160px] mx-auto px-5">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
-          <!-- Блок с логотипом и описанием -->
           <div>
             <div class="flex items-center gap-3 mb-4">
               <div
@@ -930,12 +728,9 @@
               </div>
             </div>
             <p class="text-sm leading-relaxed text-white/60">
-              Надёжный партнёр для бизнеса в Астане с 2018 года. Бухгалтерия под
-              рукой — всегда и везде.
+              Надёжный партнёр для бизнеса в Астане с 2018 года.
             </p>
           </div>
-
-          <!-- Блок навигации по странице -->
           <div>
             <h4 class="text-white font-bold text-[15px] mb-4">Навигация</h4>
             <ul class="space-y-2">
@@ -948,30 +743,9 @@
               </li>
               <li>
                 <a
-                  href="#advants"
-                  class="text-white/60 text-sm hover:text-white transition-colors no-underline"
-                  >О нас</a
-                >
-              </li>
-              <li>
-                <a
                   href="#services"
                   class="text-white/60 text-sm hover:text-white transition-colors no-underline"
                   >Услуги</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#docs"
-                  class="text-white/60 text-sm hover:text-white transition-colors no-underline"
-                  >Гарантии</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#reviews"
-                  class="text-white/60 text-sm hover:text-white transition-colors no-underline"
-                  >Отзывы</a
                 >
               </li>
               <li>
@@ -983,8 +757,6 @@
               </li>
             </ul>
           </div>
-
-          <!-- Блок контактов в подвале -->
           <div>
             <h4 class="text-white font-bold text-[15px] mb-4">Контакты</h4>
             <ul class="space-y-2">
@@ -995,35 +767,10 @@
                   >+7 701 800 8223</a
                 >
               </li>
-              <li>
-                <a
-                  href="mailto:info@buhpodrukoy.kz"
-                  class="text-white/60 text-sm hover:text-white transition-colors no-underline"
-                  >info@buhpodrukoy.kz</a
-                >
-              </li>
               <li><span class="text-white/60 text-sm">г. Астана</span></li>
-              <li>
-                <a
-                  href="https://t.me/buhpodrukoy"
-                  target="_blank"
-                  class="text-white/60 text-sm hover:text-white transition-colors no-underline"
-                  >Telegram</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/77018008223"
-                  target="_blank"
-                  class="text-white/60 text-sm hover:text-white transition-colors no-underline"
-                  >WhatsApp</a
-                >
-              </li>
             </ul>
           </div>
         </div>
-
-        <!-- Нижняя строка с копирайтом -->
         <div
           class="border-t border-white/10 pt-6 text-center text-sm text-white/40"
         >
@@ -1032,10 +779,6 @@
       </div>
     </footer>
 
-    <!-- ════════════════════════════════════════
-     ВСПЛЫВАЮЩЕЕ ОКНО (Popup) с формой заявки
-     Открывается по нажатию на любую кнопку
-═════════════════════════════════════════ -->
     <div
       id="popup"
       class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000] hidden items-center justify-center"
@@ -1044,7 +787,6 @@
         class="bg-white rounded-2xl p-10 max-w-[440px] w-[90%] relative"
         style="animation: popIn 0.25s ease"
       >
-        <!-- Кнопка закрытия попапа -->
         <button
           id="closePopup"
           class="absolute top-4 right-4 bg-gray-100 border-0 w-8 h-8 rounded-full text-lg cursor-pointer flex items-center justify-center text-[#0C3D47] hover:bg-gray-200 transition-colors"
@@ -1052,7 +794,6 @@
           ✕
         </button>
 
-        <!-- Содержимое попапа: форма заявки -->
         <div id="popupForm">
           <h3 class="font-montserrat text-2xl font-extrabold mb-2 text-teal">
             Обсудим ваши потребности?
@@ -1065,6 +806,7 @@
             <div class="mb-3.5">
               <input
                 type="text"
+                name="name"
                 placeholder="Ваше имя"
                 required
                 class="w-full px-3.5 py-3 border border-gray-200 rounded-lg text-sm transition-colors"
@@ -1073,12 +815,12 @@
             <div class="mb-3.5">
               <input
                 type="tel"
+                name="phone"
                 placeholder="+7 ___ ___ __ __"
                 required
                 class="w-full px-3.5 py-3 border border-gray-200 rounded-lg text-sm transition-colors"
               />
             </div>
-            <!-- Согласие с политикой конфиденциальности -->
             <div class="flex gap-2 items-start text-xs text-gray-500 mb-4">
               <input
                 type="checkbox"
@@ -1101,7 +843,6 @@
             </button>
           </form>
 
-          <!-- Ссылки на мессенджеры внутри попапа -->
           <div class="flex justify-center gap-2.5 mt-4">
             <a
               href="https://t.me/buhpodrukoy"
@@ -1118,7 +859,6 @@
           </div>
         </div>
 
-        <!-- Сообщение об успешной отправке заявки -->
         <div id="successMsg" class="hidden text-center py-5">
           <div class="text-6xl mb-4">✅</div>
           <h3 class="font-montserrat text-2xl font-extrabold text-teal mb-2">
@@ -1129,7 +869,6 @@
       </div>
     </div>
 
-    <!-- ─── Анимация появления попапа ─── -->
     <style>
       @keyframes popIn {
         from {
@@ -1143,92 +882,104 @@
       }
     </style>
 
-    <!-- ════════════════════════════════════════
-     JAVASCRIPT — логика интерактивности
-═════════════════════════════════════════ -->
     <script>
-      // ── Открытие и закрытие попапа ──
       const popup = document.getElementById("popup");
+      const popupFormContainer = document.getElementById("popupForm");
+      const successMsg = document.getElementById("successMsg");
 
-      // Все кнопки с классом open-popup открывают модальное окно
+      // Открытие попапа
       document.querySelectorAll(".open-popup").forEach((btn) => {
         btn.addEventListener("click", (e) => {
           e.preventDefault();
-          // Сбрасываем состояние: показываем форму, скрываем сообщение об успехе
-          document.getElementById("popupForm").style.display = "";
-          document.getElementById("successMsg").classList.add("hidden");
+          popupFormContainer.style.display = "block";
+          successMsg.classList.add("hidden");
           popup.classList.remove("hidden");
           popup.classList.add("flex");
         });
       });
 
-      // Закрытие по кнопке × внутри попапа
-      document.getElementById("closePopup").addEventListener("click", () => {
+      // Закрытие
+      const closePopup = () => {
         popup.classList.add("hidden");
         popup.classList.remove("flex");
-      });
-
-      // Закрытие по клику на тёмный фон за попапом
+      };
+      document
+        .getElementById("closePopup")
+        .addEventListener("click", closePopup);
       popup.addEventListener("click", (e) => {
-        if (e.target === popup) {
-          popup.classList.add("hidden");
-          popup.classList.remove("flex");
-        }
+        if (e.target === popup) closePopup();
       });
 
-      // ── Обработка отправки форм ──
-      function handleForm(form) {
-        form.addEventListener("submit", (e) => {
-          e.preventDefault();
-          // Скрываем форму и показываем сообщение об успехе
-          document.getElementById("popupForm").style.display = "none";
-          document.getElementById("successMsg").classList.remove("hidden");
-          // Если форма была на главной странице — открываем попап
-          if (form.id === "heroForm") {
-            popup.classList.remove("hidden");
-            popup.classList.add("flex");
-          }
-        });
-      }
-      handleForm(document.getElementById("heroForm"));
-      handleForm(document.getElementById("mainPopupForm"));
+      // ── ЛОГИКА ОТПРАВКИ ──
+      async function sendData(e, formId) {
+        e.preventDefault();
 
-      // ── Анимация fade-up при скролле (IntersectionObserver) ──
+        const form = document.getElementById(formId);
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.textContent;
+
+        // UI: Блокируем кнопку
+        btn.disabled = true;
+        btn.textContent = "Отправка...";
+
+        // Собираем данные
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+          const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          if (response.ok) {
+            // Если отправлено успешно
+            if (formId === "heroForm") {
+              // Если отправляли с главной, открываем попап с успехом
+              popup.classList.remove("hidden");
+              popup.classList.add("flex");
+            }
+            // Показываем сообщение успеха в попапе
+            popupFormContainer.style.display = "none";
+            successMsg.classList.remove("hidden");
+            form.reset();
+          } else {
+            alert("Ошибка отправки данных. Попробуйте позже.");
+          }
+        } catch (err) {
+          console.error(err);
+          alert("Ошибка сети.");
+        } finally {
+          // Возвращаем кнопку в исходное состояние
+          btn.disabled = false;
+          btn.textContent = originalText;
+        }
+      }
+
+      // Навешиваем обработчики
+      document
+        .getElementById("heroForm")
+        .addEventListener("submit", (e) => sendData(e, "heroForm"));
+      document
+        .getElementById("mainPopupForm")
+        .addEventListener("submit", (e) => sendData(e, "mainPopupForm"));
+
+      // Анимации скролла
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("visible");
-              observer.unobserve(entry.target); // отключаем наблюдение после срабатывания
+              observer.unobserve(entry.target);
             }
           });
         },
         { threshold: 0.12 },
       );
-
-      // Навешиваем наблюдение на все элементы с классом fade-up
       document
         .querySelectorAll(".fade-up")
         .forEach((el) => observer.observe(el));
-
-      // ── Подсветка активного пункта навигации при скролле ──
-      const sections = document.querySelectorAll("section[id]");
-      const navLinks = document.querySelectorAll("nav a");
-
-      window.addEventListener("scroll", () => {
-        let current = "";
-        // Определяем текущую секцию по позиции скролла
-        sections.forEach((s) => {
-          if (window.scrollY >= s.offsetTop - 100) current = s.id;
-        });
-        // Выделяем соответствующую ссылку в навигации
-        navLinks.forEach((a) => {
-          a.style.color =
-            a.getAttribute("href") === "#" + current ? "#0E5E6F" : "";
-          a.style.fontWeight =
-            a.getAttribute("href") === "#" + current ? "700" : "";
-        });
-      });
     </script>
   </body>
 </html>
