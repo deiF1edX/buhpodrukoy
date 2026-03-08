@@ -33,19 +33,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileMenu = document.getElementById("mobileMenu");
   const mobileLinks = document.querySelectorAll(".mobile-link");
 
-  // Открыть/закрыть меню
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("translate-x-full");
-    // Превращаем гамбургер в крестик (анимация)
-    const spans = menuBtn.querySelectorAll("span");
-    spans[0].classList.toggle("rotate-45");
-    spans[0].classList.toggle("translate-y-2");
-    spans[1].classList.toggle("opacity-0");
-    spans[2].classList.toggle("-rotate-45");
-    spans[2].classList.toggle("-translate-y-2");
-  });
+  if (menuBtn) {
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("translate-x-full");
+      const spans = menuBtn.querySelectorAll("span");
+      spans[0].classList.toggle("rotate-45");
+      spans[0].classList.toggle("translate-y-2");
+      spans[1].classList.toggle("opacity-0");
+      spans[2].classList.toggle("-rotate-45");
+      spans[2].classList.toggle("-translate-y-2");
+    });
+  }
 
-  // Закрыть меню при клике на ссылку
   mobileLinks.forEach((link) => {
     link.addEventListener("click", () => {
       mobileMenu.classList.add("translate-x-full");
@@ -69,10 +68,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  closeBtn.addEventListener("click", () => {
-    popup.classList.add("hidden");
-    popup.classList.remove("flex");
-  });
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      popup.classList.add("hidden");
+      popup.classList.remove("flex");
+    });
+  }
 
   popup.addEventListener("click", (e) => {
     if (e.target === popup) {
@@ -81,19 +82,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 4. Отправка формы через Vercel API (БЕЗОПАСНО)
+  // 4. Отправка формы
   async function sendToTelegram(formId) {
     const form = document.getElementById(formId);
     const formData = new FormData(form);
-
-    // Собираем данные в простой объект
     const data = {
       name: formData.get("name"),
       phone: formData.get("phone"),
     };
 
     try {
-      // Отправляем запрос не в телеграм, а на НАШ сервер Vercel
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -101,7 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (response.ok) {
-        // Показать успех
         if (formId === "heroForm") {
           popup.classList.remove("hidden");
           popup.classList.add("flex");
@@ -118,18 +115,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Навешиваем обработчики на формы
-  document.getElementById("heroForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    sendToTelegram("heroForm");
-  });
+  // Навешивание обработчиков
+  const heroForm = document.getElementById("heroForm");
+  if (heroForm) {
+    heroForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      sendToTelegram("heroForm");
+    });
+  }
 
-  document.getElementById("popupForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    sendToTelegram("popupForm");
-  });
+  const popupForm = document.getElementById("popupForm");
+  if (popupForm) {
+    popupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      sendToTelegram("popupForm");
+    });
+  }
 
-  // 5. Анимация появления при скролле
+  // 5. Анимации
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {

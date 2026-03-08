@@ -3,45 +3,44 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-/* Компоненты для кнопок и полей (чтобы не дублировать классы в HTML) */
-.nav-link {
-  @apply text-[#0C3D47] text-sm font-medium mx-3 hover:text-teal transition-colors no-underline;
+/* ─── ДЕКОР ИЗ СТАРОГО ДИЗАЙНА ─── */
+#bann::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+#bann::after {
+  content: "";
+  position: absolute;
+  bottom: -120px;
+  right: 120px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
 }
 
-.form-input {
-  @apply w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-teal transition-colors;
-}
-
-.main-btn {
-  @apply bg-primary text-teal font-montserrat font-black text-[15px] py-3.5 rounded-lg hover:bg-primary-dark transition-all cursor-pointer border-0 shadow-lg hover:shadow-xl active:scale-95;
-}
-
-.messenger-btn {
-  @apply flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 rounded-lg text-sm font-medium text-[#0C3D47] hover:border-teal hover:text-teal transition-colors no-underline;
-}
-
-.benefit-card {
-  @apply flex items-start gap-3.5 bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3.5 border border-white/10;
-}
-
-.service-card {
-  @apply bg-white rounded-2xl p-6 border-2 border-transparent hover:border-teal hover:-translate-y-1 hover:shadow-lg transition-all duration-300;
-}
-
-/* Стили для Swiper (карусель) */
+/* Стили для Swiper (Слайдер) */
 .swiper {
   width: 100%;
-  padding-bottom: 50px !important; /* место для точек внизу */
+  padding-bottom: 50px !important;
 }
 
 .swiper-slide {
-  height: 300px; /* Фиксированная высота для слайдов */
+  height: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Изменяем цвет стрелок и точек слайдера под наш дизайн */
+/* Цвет стрелок слайдера */
 .swiper-button-next,
 .swiper-button-prev {
   color: #f5c800 !important;
@@ -52,17 +51,17 @@ body {
 
 /* Анимация попапа */
 .popup-anim {
-  animation: popIn 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  animation: popIn 0.25s ease;
 }
 
 @keyframes popIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.92) translateY(10px);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateY(0);
   }
 }
 
