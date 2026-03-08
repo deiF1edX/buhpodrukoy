@@ -81,33 +81,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 4. Отправка формы в Telegram (Замени ТОКЕН!)
+  // 4. Отправка формы через Vercel API (БЕЗОПАСНО)
   async function sendToTelegram(formId) {
     const form = document.getElementById(formId);
     const formData = new FormData(form);
 
-    // 🔥 ВСТАВЬ СЮДА СВОИ ДАННЫЕ
-    const BOT_TOKEN = "ВАШ_ТОКЕН";
-    const CHAT_ID = "ВАШ_CHAT_ID";
-
-    const text = `🔥 Заявка с сайта!\n👤 Имя: ${formData.get("name")}\n📞 Тел: ${formData.get("phone")}`;
+    // Собираем данные в простой объект
+    const data = {
+      name: formData.get("name"),
+      phone: formData.get("phone"),
+    };
 
     try {
-      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      // Отправляем запрос не в телеграм, а на НАШ сервер Vercel
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id: CHAT_ID, text: text }),
+        body: JSON.stringify(data),
       });
 
-      // Показать успех
-      if (formId === "heroForm") {
-        popup.classList.remove("hidden");
-        popup.classList.add("flex");
+      if (response.ok) {
+        // Показать успех
+        if (formId === "heroForm") {
+          popup.classList.remove("hidden");
+          popup.classList.add("flex");
+        }
+        popupFormContainer.style.display = "none";
+        successMsg.classList.remove("hidden");
+        form.reset();
+      } else {
+        alert("Ошибка отправки. Попробуйте позже.");
       }
-      popupFormContainer.style.display = "none";
-      successMsg.classList.remove("hidden");
-      form.reset();
     } catch (error) {
+      console.error(error);
       alert("Ошибка сети. Напишите нам в WhatsApp.");
     }
   }
