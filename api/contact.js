@@ -5,8 +5,10 @@ export default async function handler(req, res) {
   }
 
   const { name, phone } = req.body;
-  const token = process.env.TELEGRAM_TOKEN;
-  const chatId = process.env.CHAT_ID;
+
+  // ИСПРАВЛЕНИЕ: Используем имена точно как в Vercel
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
 
   if (!token || !chatId) {
     return res
@@ -37,9 +39,12 @@ export default async function handler(req, res) {
     if (response.ok) {
       return res.status(200).json({ message: "Success" });
     } else {
-      return res.status(500).json({ message: "Telegram Error" });
+      const errorData = await response.json();
+      console.error("Telegram Error:", errorData); // Для логов
+      return res.status(500).json({ message: "Telegram API Error" });
     }
   } catch (error) {
+    console.error("Server Error:", error); // Для логов
     return res.status(500).json({ message: "Internal Server Error" });
   }
 }
